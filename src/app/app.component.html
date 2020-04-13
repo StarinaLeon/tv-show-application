@@ -1,0 +1,21 @@
+<h1>TV App</h1>
+
+<table class="resp-tab">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Season</th>
+      <th>Network</th>
+      <th>Premiere</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let show of shows">
+    <td><span>Name</span>{{show.name}}</td>
+    <td><span>Season</span>{{show.seasons}}</td>
+    <td><span>Network</span>{{show.network}}</td>
+    <td><span>Premiere</span>{{show.premiereDate}}</td>
+  </tr>
+  </tbody>
+</table>
