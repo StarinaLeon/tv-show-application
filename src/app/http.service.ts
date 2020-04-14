@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Show} from './show';
 import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
+import {map, toArray} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +28,6 @@ export class HttpService {
   }
 
   getGenres() {
-    return this.http.get('assets/db.json').pipe(map(data => {
-      let genres = [];
 
-    }))
   }
 }

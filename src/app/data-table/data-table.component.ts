@@ -12,12 +12,11 @@ import {Show} from '../show';
 })
 export class DataTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'seasons', 'network', 'premiereDate'];
-  shows: Show[] = [];
+  shows: Show[];
 
   dataSource = new MatTableDataSource<Show>(this.shows);
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
-
 
   constructor(private httpService: HttpService) { }
 
