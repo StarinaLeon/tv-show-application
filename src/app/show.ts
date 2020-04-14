@@ -1,4 +1,4 @@
-export class Show {
+export interface Show {
   name: string;
   seasons: number;
   network: string;

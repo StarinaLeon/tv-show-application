@@ -9,12 +9,13 @@ import { map } from 'rxjs/operators';
 })
 export class HttpService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getUsers() : Observable<Show[]> {
-    return this.http.get('assets/db.json').pipe(map(data=>{
+  getUsers(): Observable<Show[]> {
+    return this.http.get('assets/db.json').pipe(map(data => {
       let serials = data["serials"];
-      return serials.map((show:any) => {
+      return serials.map((show: any) => {
         return {
           name: show.name,
           seasons: show.seasons,
@@ -24,5 +25,12 @@ export class HttpService {
         };
       });
     }));
+  }
+
+  getGenres() {
+    return this.http.get('assets/db.json').pipe(map(data => {
+      let genres = [];
+
+    }))
   }
 }
