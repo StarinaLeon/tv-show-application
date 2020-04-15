@@ -28,6 +28,16 @@ export class HttpService {
   }
 
   getGenres() {
+    return this.http.get('assets/db.json').pipe(map(data => {
+      let genres = data["genres"]
+      return genres
+    }))
+  }
 
+  getYears() {
+    return this.http.get('assets/db.json').pipe(map(data => {
+      let years = data["years"]
+      return years
+    }))
   }
 }

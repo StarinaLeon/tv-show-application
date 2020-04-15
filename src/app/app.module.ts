@@ -7,17 +7,17 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
-import { InputComponent } from './input/input.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { DataTableComponent } from './data-table/data-table.component';
+import {DataTableComponent } from './data-table/data-table.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSortModule} from '@angular/material/sort';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputComponent,
     DataTableComponent
   ],
   imports: [
@@ -30,7 +30,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatIconModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSortModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
