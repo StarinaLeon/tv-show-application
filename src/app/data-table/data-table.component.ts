@@ -1,9 +1,10 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {HttpService} from '../http.service';
 import {Show} from '../show';
 import {MatSort, Sort} from '@angular/material/sort';
+import {FilterService} from '../filter.service';
 
 @Component({
   selector: 'app-data-table',
@@ -29,12 +30,15 @@ export class DataTableComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService,
+    private filterService: FilterService
+              ) {}
 
   ngOnInit(): void {
     this.httpService.getUsers().subscribe(data => {
       this.shows = data;
-      this.applyFilter();
+      this.filterService.applyFilter();
       setTimeout(() => this.getPageNumber());
     });
 
@@ -50,25 +54,6 @@ export class DataTableComponent implements OnInit {
 
     console.log(this.paginator)
   }
-
-  applyFilter() {
-    // const filterValue = (event.target as HTMLInputElement).value;
-    // this.dataSource.filter = filterValue.trim().toLowerCase();
-    this.dataSource.data = this.shows.filter((show) => {
-      // let isMatched = true;
-      if (this.inputValue) {
-       if (
-         !show.name.toLowerCase().includes(this.inputValue.toLowerCase()) &&
-         !show.network.toLowerCase().includes(this.inputValue.toLowerCase())
-        )
-       {
-         return false;
-       }
-      }
-      return true
-    })
-  }
-
 
   getSelectedGenre() {
     // console.log(this.selectedGenre)
@@ -94,7 +79,7 @@ export class DataTableComponent implements OnInit {
 
   getInputValue() {
     console.log(this.inputValue)
-    this.applyFilter()
+    this.filterService.applyFilter()
   }
 
   getPageNumber() {
