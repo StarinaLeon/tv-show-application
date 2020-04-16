@@ -16,13 +16,16 @@ import {MatSortModule} from '@angular/material/sort';
 import {FormsModule} from '@angular/forms';
 import { PageNumberComponent } from './page-number/page-number.component';
 import { PaginationPipe } from './pagination.pipe';
+import { FilterComponent } from './filter/filter.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DataTableComponent,
     PageNumberComponent,
-    PaginationPipe
+    PaginationPipe,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
