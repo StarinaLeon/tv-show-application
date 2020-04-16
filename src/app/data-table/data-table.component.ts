@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {HttpService} from '../http.service';
@@ -20,7 +20,10 @@ export class DataTableComponent implements OnInit {
   inputValue: string;
   displayedColumns: string[] = ['name', 'seasons', 'network', 'premiereDate'];
   dataSource = new MatTableDataSource<Show>();
+  pages: number;
   currentPage: number;
+  pageSizeOptions: Array<number>;
+  currentPageSize: number;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -33,6 +36,7 @@ export class DataTableComponent implements OnInit {
       this.applyFilter();
       setTimeout(() => this.getPageNumber());
     });
+
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.httpService.getGenres().subscribe(data => {
@@ -42,6 +46,8 @@ export class DataTableComponent implements OnInit {
     this.httpService.getYears().subscribe(data => {
       this.years = data;
     })
+
+    console.log(this.paginator)
   }
 
   applyFilter() {
@@ -62,9 +68,6 @@ export class DataTableComponent implements OnInit {
     })
   }
 
-  sortData(sort: Sort) {
-
-  }
 
   getSelectedGenre() {
     // console.log(this.selectedGenre)
@@ -94,7 +97,20 @@ export class DataTableComponent implements OnInit {
   }
 
   getPageNumber() {
-    console.log(this.dataSource.paginator.getNumberOfPages())
+    this.pages = this.dataSource.paginator.getNumberOfPages();
+    this.currentPage = this.paginator.pageIndex + 1;
+    this.pageSizeOptions = this.paginator.pageSizeOptions;
   }
 
+  nextPage() {
+    this.paginator.nextPage();
+  }
+
+  previousPage() {
+    this.paginator.previousPage()
+  }
+
+  changePageSize() {
+
+  }
 }

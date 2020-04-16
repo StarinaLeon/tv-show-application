@@ -14,11 +14,15 @@ import {DataTableComponent } from './data-table/data-table.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSortModule} from '@angular/material/sort';
 import {FormsModule} from '@angular/forms';
+import { PageNumberComponent } from './page-number/page-number.component';
+import { PaginationPipe } from './pagination.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataTableComponent
+    DataTableComponent,
+    PageNumberComponent,
+    PaginationPipe
   ],
   imports: [
     BrowserModule,
