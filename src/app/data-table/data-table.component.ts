@@ -28,6 +28,7 @@ export class DataTableComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+
   constructor(private httpService: HttpService) {}
 
   ngOnInit(): void {
@@ -111,6 +112,6 @@ export class DataTableComponent implements OnInit {
   }
 
   changePageSize() {
-
+    this.paginator.pageSize = 10;
   }
 }

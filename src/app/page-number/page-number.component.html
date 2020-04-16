@@ -1,0 +1,27 @@
+
+<!--<p>Current Page: {{currentPage}}</p>-->
+<!--<p>Total pages: {{pages}}</p>-->
+
+<div class="container">
+  <div class="left"></div>
+
+  <div class="center flexcontainer">
+    <div [class.disabled]="currentPage === 1"
+         class="change-page-icon flex-page-number"
+         (click)="previousPage()"
+    >
+      <
+    </div>
+
+    <div *ngFor="let page of pages | pagination" class="flex-page-number">{{page}}</div>
+    <div [class.disabled]="currentPage === pages " class="change-page-icon flex-page-number" (click)="nextPage()">></div>
+  </div>
+
+
+  <div class="right flexcontainer">
+    <div  *ngFor="let pageNumber of pageSizeOptions"
+          class="flex-change-number"
+          (click)="changePageSize()"
+    >{{pageNumber}}</div>
+  </div>
+</div>
