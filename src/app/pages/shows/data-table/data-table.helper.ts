@@ -1,5 +1,5 @@
-import {FiltersData} from '../../common.interfaces';
-import {Show} from '../show';
+import {FiltersData} from '../../../../common.interfaces';
+import {Show} from '../../../show';
 
 export function filterByYear(data: FiltersData, show: Show) {
   if (data.year) {

@@ -12,6 +12,7 @@ export class PageNumberComponent implements OnInit {
   @Output() toNextPage = new EventEmitter();
   @Output() toPreviousPage = new EventEmitter();
   @Output() onChangePageSize = new EventEmitter();
+  @Output() onGoToPage = new EventEmitter();
 
   constructor() { }
 

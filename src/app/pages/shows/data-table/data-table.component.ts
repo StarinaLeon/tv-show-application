@@ -1,12 +1,13 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {HttpService} from '../http.service';
-import {Show} from '../show';
-import {MatSort, Sort} from '@angular/material/sort';
-import {FilterService} from '../filter.service';
-import {FiltersData} from '../../common.interfaces';
+import {HttpService} from '../../../http.service';
+import {Show} from '../../../show';
+import {MatSort} from '@angular/material/sort';
+import {FilterService} from '../../../filter.service';
+import {FiltersData} from '../../../../common.interfaces';
 import {filterByGenre, filterBySearch, filterByYear} from './data-table.helper';
+
 
 @Component({
   selector: 'app-data-table',
@@ -33,7 +34,7 @@ export class DataTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterService.filters.subscribe(this.applyFilter.bind(this));
-    this.httpService.getUsers().subscribe(data => {
+    this.httpService.getShows().subscribe(data => {
       this.shows = data;
       this.dataSource.data = this.shows;
       setTimeout(() => this.getPageNumber());
@@ -47,7 +48,7 @@ export class DataTableComponent implements OnInit {
     this.dataSource.data = this.shows
       .filter(filterBySearch.bind(this, data))
       .filter(filterByGenre.bind(this, data))
-      .filter(filterByYear.bind(this, data))
+      .filter(filterByYear.bind(this, data));
   }
 
   public readonly PAGE_OPTIONS = [2, 5, 10];

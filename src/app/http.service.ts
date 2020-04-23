@@ -12,7 +12,7 @@ export class HttpService {
   constructor(private http: HttpClient) {
   }
 
-  getUsers(): Observable<Show[]> {
+  getShows(): Observable<Show[]> {
     return this.http.get('assets/db.json').pipe(map(data => {
       let serials = data["serials"];
       return serials.map((show: any) => {

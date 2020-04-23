@@ -9,11 +9,6 @@ import {HttpService} from './http.service';
 })
 
 export class AppComponent  implements OnInit {
-
-  constructor(private httpService: HttpService) {
-  }
-
   ngOnInit() {
-
   }
 }

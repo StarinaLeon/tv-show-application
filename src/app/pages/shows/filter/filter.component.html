@@ -1,21 +1,21 @@
 <mat-form-field>
   <mat-label>Name</mat-label>
-  <input matInput [(ngModel)]="inputValue" (keyup)="getInputValue()" placeholder="Name" >
+  <input matInput [(ngModel)]="inputValue" (keyup)="getInputValue()" placeholder="Name">
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
-
 
 <mat-form-field>
   <mat-label>Genre</mat-label>
   <mat-select disableRipple [(ngModel)]="selectedGenre" (selectionChange)="getSelectedGenre()">
+    <mat-option>None</mat-option>
     <mat-option *ngFor="let genre of genres" [value]="genre">{{genre}}</mat-option>
   </mat-select>
 </mat-form-field>
 
-
 <mat-form-field>
-  <mat-label> Premiere Year </mat-label>
-  <mat-select disableRipple [(ngModel)] ="selectedYear" (selectionChange)="getSelectedYear()">
-    <mat-option *ngFor="let year of years" [value]="year" >{{year}}</mat-option>
+  <mat-label> Premiere Year</mat-label>
+  <mat-select disableRipple [(ngModel)]="selectedYear" (selectionChange)="getSelectedYear()">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
   </mat-select>
 </mat-form-field>

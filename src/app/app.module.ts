@@ -10,22 +10,32 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {DataTableComponent } from './data-table/data-table.component';
+import {DataTableComponent } from './pages/shows/data-table/data-table.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSortModule} from '@angular/material/sort';
 import {FormsModule} from '@angular/forms';
-import { PageNumberComponent } from './page-number/page-number.component';
+import { PageNumberComponent } from './pages/shows/page-number/page-number.component';
 import { PaginationPipe } from './pagination.pipe';
-import { FilterComponent } from './filter/filter.component';
-
+import { FilterComponent } from './pages/shows/filter/filter.component';
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {EffectsModule} from "@ngrx/effects";
+import {environment} from '../environments/environment';
+import {showsReducer} from './store/shows/reducer';
+import {ShowsEffects} from './store/shows/effects';
+import {reducers} from './store/root.reducers';
+import {AppContainer} from './app.container';
+import {FilterContainer} from './pages/shows/filter/filter.container';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppContainer,
     DataTableComponent,
     PageNumberComponent,
     PaginationPipe,
-    FilterComponent
+    FilterComponent,
+    FilterContainer
   ],
   imports: [
     BrowserModule,
@@ -39,9 +49,16 @@ import { FilterComponent } from './filter/filter.component';
     MatPaginatorModule,
     MatChipsModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([ShowsEffects]),
+    StoreDevtoolsModule.instrument({
+      name: 'TV App DevTools',
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppContainer , FilterContainer]
 })
 export class AppModule {}

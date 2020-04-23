@@ -9,13 +9,23 @@
       <
     </div>
 
-    <div *ngFor="let page of pages | pagination" class="flex-page-number">{{page}}</div>
-    <div [class.disabled]="currentPage === pages " class="change-page-icon flex-page-number" (click)="nextPage()">></div>
+    <div [class.inactive]="page !== currentPage"
+         *ngFor="let page of pages | pagination"
+         class="flex-page-number"
+    >
+      {{page}}
+    </div>
+
+    <div [class.disabled]="currentPage === pages "
+         class="change-page-icon flex-page-number"
+         (click)="nextPage()">
+      >
+    </div>
   </div>
 
 
   <div class="right flexcontainer">
-    <div  *ngFor="let pageNumber of pageSizeOptions"
+    <div *ngFor="let pageNumber of pageSizeOptions"
           class="flex-change-number"
           (click)="changePageSize()"
     >{{pageNumber}}</div>
