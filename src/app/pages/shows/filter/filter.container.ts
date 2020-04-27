@@ -3,20 +3,38 @@ import {Store} from '@ngrx/store';
 import {AppState} from '../../../store/root.reducers';
 import {Observable} from 'rxjs';
 import {getGenres, getYears} from '../../../store/shows/selectors';
-import {LoadGenres, LoadYears} from '../../../store/shows/actions';
+import {ChangeSearchQuery, LoadGenres, LoadYears, SelectGenre, SelectYear} from '../../../store/shows/actions';
 
 @Component({
-  selector: 'app-filer-container',
-  template: '<app-filter [years]="years$ | async" [genres]="genres$ | async"></app-filter>'
+  selector: 'app-filter-container',
+  template: `<app-filter (changeSelectedQuery)="changeSelectedQuery($event)"
+                         (changeSelectedGenre) = "changeSelectedGenre($event)"
+                         (changeSelectedYear) = "changeSelectedYear($event)"
+                         [years]="years$ | async" [genres]="genres$ | async"
+
+  ></app-filter>`
 })
 
 export class FilterContainer {
-  public years$: Observable<string[]>
-  public genres$: Observable<string[]>
+  public years$: Observable<string[]>;
+  public genres$: Observable<string[]>;
+
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(new LoadGenres())
-    this.store.dispatch(new LoadYears())
-    this.years$ = this.store.select(getYears)
-    this.genres$ = this.store.select(getGenres)
+    this.store.dispatch(new LoadGenres());
+    this.store.dispatch(new LoadYears());
+    this.years$ = this.store.select(getYears);
+    this.genres$ = this.store.select(getGenres);
+  }
+
+  changeSelectedQuery(query: string) {
+    this.store.dispatch(new ChangeSearchQuery(query))
+  }
+
+  changeSelectedGenre(genre: string) {
+    this.store.dispatch(new SelectGenre(genre))
+  }
+
+  changeSelectedYear(year: string) {
+    this.store.dispatch(new SelectYear(year))
   }
 }

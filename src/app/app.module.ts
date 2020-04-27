@@ -15,7 +15,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSortModule} from '@angular/material/sort';
 import {FormsModule} from '@angular/forms';
 import { PageNumberComponent } from './pages/shows/page-number/page-number.component';
-import { PaginationPipe } from './pagination.pipe';
+import { PaginationPipe } from './shared/pipes/pagination.pipe';
 import { FilterComponent } from './pages/shows/filter/filter.component';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
@@ -26,12 +26,14 @@ import {ShowsEffects} from './store/shows/effects';
 import {reducers} from './store/root.reducers';
 import {AppContainer} from './app.container';
 import {FilterContainer} from './pages/shows/filter/filter.container';
+import {DataTableContainer} from './pages/shows/data-table/data-table.container';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppContainer,
     DataTableComponent,
+    DataTableContainer,
     PageNumberComponent,
     PaginationPipe,
     FilterComponent,
@@ -59,6 +61,6 @@ import {FilterContainer} from './pages/shows/filter/filter.container';
     })
   ],
   providers: [],
-  bootstrap: [ AppContainer , FilterContainer]
+  bootstrap: [ AppContainer ]
 })
 export class AppModule {}

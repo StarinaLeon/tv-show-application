@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from './store/root.reducers';
-import {LoadShows, LoadYears, LoadGenres} from './store/shows/actions';
+import {LoadShows } from './store/shows/actions';
 
 
 @Component({

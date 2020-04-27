@@ -1,4 +1,4 @@
-export interface Show {
+export interface ShowInterface {
   name: string;
   seasons: number;
   network: string;

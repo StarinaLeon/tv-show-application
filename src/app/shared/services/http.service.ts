@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Show} from './show';
+import {ShowInterface} from '../interfaces/show.interface';
 import {Observable} from 'rxjs';
 import {map, toArray} from 'rxjs/operators';
 
@@ -12,7 +12,7 @@ export class HttpService {
   constructor(private http: HttpClient) {
   }
 
-  getShows(): Observable<Show[]> {
+  getShows(): Observable<ShowInterface[]> {
     return this.http.get('assets/db.json').pipe(map(data => {
       let serials = data["serials"];
       return serials.map((show: any) => {

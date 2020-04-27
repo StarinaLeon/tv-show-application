@@ -1,30 +1,28 @@
-import {FiltersData} from '../../../../common.interfaces';
-import {Show} from '../../../show';
+import {ShowInterface} from '../../../shared/interfaces/show.interface';
 
-export function filterByYear(data: FiltersData, show: Show) {
-  if (data.year) {
-    if (!show.premiereDate.includes(data.year)) {
+export function filterByYear(year: string, show: ShowInterface) {
+  if (year) {
+    if (!show.premiereDate.includes(year)) {
       return false;
     }
   }
   return true;
 }
 
-export function filterByGenre(data: FiltersData, show: Show) {
-  if (data.genre) {
-    if (!show.genres.includes(data.genre)) {
+export function filterByGenre(genre: string, show: ShowInterface) {
+  if (genre) {
+    if (!show.genres.includes(genre)) {
       return false;
     }
   }
-
   return true;
 }
 
-export function filterBySearch(data: FiltersData, show: Show) {
-  if (data.inputValue) {
+export function filterBySearch(query: string, show: ShowInterface) {
+  if (query) {
     if (
-      !show.name.toLowerCase().includes(data.inputValue.toLowerCase()) &&
-      !show.network.toLowerCase().includes(data.inputValue.toLowerCase())
+      !show.name.toLowerCase().includes(query.toLowerCase()) &&
+      !show.network.toLowerCase().includes(query.toLowerCase())
     ) {
       return false;
     }

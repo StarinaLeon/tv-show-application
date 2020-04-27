@@ -1,6 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
-import {HttpService} from '../../../http.service';
-import {FilterService} from '../../../filter.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 
 @Component({
@@ -11,32 +9,27 @@ import {FilterService} from '../../../filter.service';
 export class FilterComponent implements OnInit {
   @Input() genres: string[];
   @Input() years: string[];
+  @Output() changeSelectedQuery = new EventEmitter()
+  @Output() changeSelectedGenre = new EventEmitter()
+  @Output() changeSelectedYear = new EventEmitter()
   selectedGenre: string;
   selectedYear: string;
   inputValue: string;
 
-
-  constructor(private httpService: HttpService,
-              private filterService: FilterService
-  ) {
-  }
+  constructor() {}
 
   ngOnInit(): void {
   }
 
   getInputValue() {
-    this.emitValues();
+    this.changeSelectedQuery.emit(this.inputValue)
   }
 
   getSelectedGenre() {
-    this.emitValues();
+    this.changeSelectedGenre.emit(this.selectedGenre)
   }
 
   getSelectedYear() {
-    this.emitValues();
-  }
-
-  emitValues() {
-    this.filterService.filters.next({inputValue: this.inputValue, year: this.selectedYear, genre: this.selectedGenre});
+    this.changeSelectedYear.emit(this.selectedYear)
   }
 }

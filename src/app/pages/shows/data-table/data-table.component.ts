@@ -1,13 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {HttpService} from '../../../http.service';
-import {Show} from '../../../show';
+import {ShowInterface} from '../../../shared/interfaces/show.interface';
 import {MatSort} from '@angular/material/sort';
-import {FilterService} from '../../../filter.service';
-import {FiltersData} from '../../../../common.interfaces';
-import {filterByGenre, filterBySearch, filterByYear} from './data-table.helper';
-
 
 @Component({
   selector: 'app-data-table',
@@ -15,10 +10,11 @@ import {filterByGenre, filterBySearch, filterByYear} from './data-table.helper';
   styleUrls: ['./data-table.component.css']
 })
 
-export class DataTableComponent implements OnInit {
-  private shows: Show[];
+export class DataTableComponent implements OnInit, OnChanges {
+  public readonly PAGE_OPTIONS = [2, 5, 10];
+  @Input() shows: ShowInterface[];
   displayedColumns: string[] = ['name', 'seasons', 'network', 'premiereDate'];
-  dataSource = new MatTableDataSource<Show>();
+  dataSource = new MatTableDataSource<ShowInterface>();
   pages: number;
   currentPage: number;
   pageSizeOptions: Array<number>;
@@ -26,33 +22,17 @@ export class DataTableComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-
-  constructor(private httpService: HttpService,
-              private filterService: FilterService
-  ) {
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.filterService.filters.subscribe(this.applyFilter.bind(this));
-    this.httpService.getShows().subscribe(data => {
-      this.shows = data;
-      this.dataSource.data = this.shows;
-      setTimeout(() => this.getPageNumber());
-    });
-
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(data: FiltersData) {
-    this.dataSource.data = this.shows
-      .filter(filterBySearch.bind(this, data))
-      .filter(filterByGenre.bind(this, data))
-      .filter(filterByYear.bind(this, data));
+  ngOnChanges() {
+    this.dataSource.data = this.shows;
+    setTimeout(() => this.getPageNumber());
   }
-
-  public readonly PAGE_OPTIONS = [2, 5, 10];
-
 
   getPageNumber() {
     this.pages = this.dataSource.paginator.getNumberOfPages();

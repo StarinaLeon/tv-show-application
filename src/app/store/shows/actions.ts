@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {Show} from '../../show';
+import {ShowInterface} from '../../shared/interfaces/show.interface';
 
 const moduleName = 'Shows';
 
@@ -38,21 +38,21 @@ export class LoadYears implements Action {
   readonly type = SHOWS_ACTION_TYPES.LOAD_YEARS.REQUESTED;
 }
 
-export class ChangeSearchQuery implements Action{
+export class ChangeSearchQuery implements Action {
   readonly type = SHOWS_ACTION_TYPES.SEARCH_QUERY_CHANGED;
 
   constructor(public payload: string) {
   }
 }
 
-export class SelectGenre implements Action{
+export class SelectGenre implements Action {
   readonly type = SHOWS_ACTION_TYPES.GENRE_SELECTED;
 
   constructor(public payload: string) {
   }
 }
 
-export class SelectYear implements Action{
+export class SelectYear implements Action {
   readonly type = SHOWS_ACTION_TYPES.YEARS_SELECTED;
 
   constructor(public payload: string) {
