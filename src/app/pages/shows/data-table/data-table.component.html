@@ -1,49 +1,49 @@
-<app-filter-container></app-filter-container>
-<mat-table [dataSource]="dataSource" matSort class="data-table">
+<div class="data-table">
+  <app-filter-container></app-filter-container>
+  <mat-table [dataSource]="dataSource" matSort>
 
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
-    <mat-cell *matCellDef="let show">
+    <ng-container matColumnDef="name" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+      <mat-cell *matCellDef="let show">
+        {{show.name}}
+        <mat-chip-list aria-label="Genre selection">
+          <mat-chip
+            *ngFor="let genre of show.genres"
+            (click)="changeSelectedGenre(genre)"
+          >{{genre}}</mat-chip>
+        </mat-chip-list>
+      </mat-cell>
+    </ng-container>
 
-      {{show.name}}
-      <mat-chip-list aria-label="Genre selection">
-        <mat-chip>{{show.genres}}</mat-chip>
-      </mat-chip-list>
-    </mat-cell>
-
-  </ng-container>
-
-
-  <ng-container matColumnDef="seasons">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Seasons</mat-header-cell>
-    <mat-cell *matCellDef="let show"> {{show.seasons}} </mat-cell>
-  </ng-container>
-
-
-  <ng-container matColumnDef="network">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Network</mat-header-cell>
-    <mat-cell *matCellDef="let show"> {{show.network}} </mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="seasons">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Seasons</mat-header-cell>
+      <mat-cell *matCellDef="let show"> {{show.seasons}} </mat-cell>
+    </ng-container>
 
 
-  <ng-container matColumnDef="premiereDate">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Premiere</mat-header-cell>
-    <mat-cell *matCellDef="let show"> {{show.premiereDate}} </mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
-
-<mat-paginator [pageSize]="5" [pageSizeOptions]="PAGE_OPTIONS" showFirstLastButtons
-               (page)="getPageNumber()"></mat-paginator>
-
-<app-page-number [pages]="pages"
-                 [currentPage]="currentPage"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (toNextPage)="nextPage()"
-                 (toPreviousPage)="previousPage()"
-                 (onChangePageSize)="changePageSize()"
-></app-page-number>
+    <ng-container matColumnDef="network">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Network</mat-header-cell>
+      <mat-cell *matCellDef="let show"> {{show.network}} </mat-cell>
+    </ng-container>
 
 
+    <ng-container matColumnDef="premiereDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Premiere</mat-header-cell>
+      <mat-cell *matCellDef="let show"> {{show.premiereDate}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="PAGE_OPTIONS"
+                 (page)="getPageNumber()"></mat-paginator>
+
+  <app-page-number [pages]="pages"
+                   [currentPage]="currentPage"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (toNextPage)="nextPage()"
+                   (toPreviousPage)="previousPage()"
+                   (onChangePageSize)="changePageSize()"
+  ></app-page-number>
+</div>

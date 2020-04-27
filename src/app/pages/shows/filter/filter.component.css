@@ -1,0 +1,16 @@
+.flexcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.center {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+}

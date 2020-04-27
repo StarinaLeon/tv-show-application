@@ -123,6 +123,63 @@
       "network": "Netflix, not true",
       "genres": ["dark comedy"],
       "premiereDate": "01.01.2015"
+    },
+    {
+      "name": "Terror between terrors",
+      "seasons": 20,
+      "network": "Super Netflix",
+      "genres": ["tragedy"],
+      "premiereDate": "9.07.2011"
+    },
+    {
+      "name": "The Terror seriously I am done",
+      "seasons": 1,
+      "network": "Netflix, not true",
+      "genres": ["dark comedy"],
+      "premiereDate": "01.01.2015"
+    }, {
+      "name": "The Terror",
+      "seasons": 5,
+      "network": "Netflix",
+      "genres": ["horror", "drama"],
+      "premiereDate": "20.10.2019"
+    },
+    {
+      "name": "One Tree Hill",
+      "seasons": 7,
+      "network": "SW",
+      "genres": ["drama"],
+      "premiereDate": "9.07.2011"
+    },
+    {
+      "name": "The Super terror",
+      "seasons": 8,
+      "network": "Netflix",
+      "genres": ["comedy"],
+      "premiereDate": "15.10.2019"
+    },
+    {
+      "name": "The  Mega puper Terror",
+      "seasons": 15,
+      "network": "Another company",
+      "genres": ["dark comedy"],
+      "premiereDate": "20.07.2017"
+    },
+    {
+      "name": "One Tree Hill",
+      "seasons": 7,
+      "network": "SW",
+      "genres": ["drama"],
+      "premiereDate": "9.07.2011"
+    },
+    {
+      "name": "Breaking Bad",
+      "seasons": 1,
+      "network": "ABC",
+      "genres": [
+        "drama"
+      ],
+      "premiereDate": "01.01.2015"
     }
   ],
   "years": [2002, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],

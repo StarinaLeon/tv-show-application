@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../store/root.reducers';
 import {Observable} from 'rxjs';
@@ -11,7 +11,6 @@ import {ChangeSearchQuery, LoadGenres, LoadYears, SelectGenre, SelectYear} from 
                          (changeSelectedGenre) = "changeSelectedGenre($event)"
                          (changeSelectedYear) = "changeSelectedYear($event)"
                          [years]="years$ | async" [genres]="genres$ | async"
-
   ></app-filter>`
 })
 

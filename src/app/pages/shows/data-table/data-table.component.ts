@@ -1,4 +1,6 @@
-import {Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../../store/root.reducers';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {ShowInterface} from '../../../shared/interfaces/show.interface';
@@ -13,6 +15,7 @@ import {MatSort} from '@angular/material/sort';
 export class DataTableComponent implements OnInit, OnChanges {
   public readonly PAGE_OPTIONS = [2, 5, 10];
   @Input() shows: ShowInterface[];
+  @Output() genreSelected = new EventEmitter()
   displayedColumns: string[] = ['name', 'seasons', 'network', 'premiereDate'];
   dataSource = new MatTableDataSource<ShowInterface>();
   pages: number;
@@ -22,7 +25,7 @@ export class DataTableComponent implements OnInit, OnChanges {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -50,5 +53,9 @@ export class DataTableComponent implements OnInit, OnChanges {
 
   changePageSize() {
     this.paginator.pageSize = 10;
+  }
+
+  changeSelectedGenre(genre: string) {
+    this.genreSelected.emit(genre)
   }
 }

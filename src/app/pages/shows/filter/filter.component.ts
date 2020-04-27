@@ -9,10 +9,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class FilterComponent implements OnInit {
   @Input() genres: string[];
   @Input() years: string[];
+  @Input() selectedGenre: string;
   @Output() changeSelectedQuery = new EventEmitter()
   @Output() changeSelectedGenre = new EventEmitter()
   @Output() changeSelectedYear = new EventEmitter()
-  selectedGenre: string;
+
   selectedYear: string;
   inputValue: string;
 

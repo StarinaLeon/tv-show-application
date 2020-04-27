@@ -36,7 +36,10 @@ export const getShows = createSelector(
   getSelectedGenre,
   getSelectedYear,
   (state: ShowsState, query, genre: string, year: string) => {
-    return state.shows.filter(filterBySearch.bind(this, query)).filter(filterByGenre.bind(this, genre)).filter(filterByYear.bind(this, year))
+    return state.shows
+      .filter(filterBySearch.bind(this, query))
+      .filter(filterByGenre.bind(this, genre))
+      .filter(filterByYear.bind(this, year))
   }
 );
 

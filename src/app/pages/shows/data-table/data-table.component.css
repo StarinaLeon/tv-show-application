@@ -1,5 +1,13 @@
 .data-table {
-  width: 80%;
+  width: 60%;
+  margin: auto;
 }
 
+.mat-column-name {
+  flex-direction: column;
+  align-items: flex-start;
+}
 
+.mat-standard-chip {
+  min-height: 20px;
+}

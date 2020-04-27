@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ShowInterface} from '../../../shared/interfaces/show.interface';
 
 @Component({
   selector: 'app-page-number',
@@ -6,6 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./page-number.component.css']
 })
 export class PageNumberComponent implements OnInit {
+  @Input() shows: ShowInterface[]
   @Input() pages: number;
   @Input() currentPage: number;
   @Input() pageSizeOptions: Array<number>;
