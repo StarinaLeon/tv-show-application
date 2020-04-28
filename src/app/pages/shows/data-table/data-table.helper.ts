@@ -30,3 +30,19 @@ export function filterBySearch(query: string, show: ShowInterface) {
 
   return true;
 }
+
+export function sortByName(a: ShowInterface, b:ShowInterface ) {
+  const nameA = a.name.toLowerCase();
+  const nameB = b.name.toLowerCase();
+  if (nameA > nameB) {
+    return 1;
+  }
+  if (nameA < nameB) {
+    return -1;
+  }
+  return 0;
+}
+
+export function sortByDate(a: ShowInterface, b:ShowInterface) {
+
+}

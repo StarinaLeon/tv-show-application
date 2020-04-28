@@ -1,7 +1,7 @@
 import {AppState} from '../root.reducers';
 import {createSelector} from '@ngrx/store';
 import {ShowsState} from './reducer';
-import {filterByGenre, filterBySearch, filterByYear} from '../../pages/shows/data-table/data-table.helper';
+import {filterByGenre, filterBySearch, filterByYear, sortByName} from '../../pages/shows/data-table/data-table.helper';
 
 export const getShowsState = (state: AppState) => state.shows;
 
@@ -30,18 +30,63 @@ export const getSelectedYear = createSelector(
   (state) => state.selectedYear
 )
 
+export const getSorting = createSelector(
+  getShowsState,
+  (state) => state.sorting
+)
+
+
 export const getShows = createSelector(
   getShowsState,
   getSearchQuery,
   getSelectedGenre,
   getSelectedYear,
-  (state: ShowsState, query, genre: string, year: string) => {
-    return state.shows
+  getSorting,
+  (state: ShowsState, query, genre: string, year: string, sorting) => {
+    const filteredShows = state.shows
       .filter(filterBySearch.bind(this, query))
       .filter(filterByGenre.bind(this, genre))
       .filter(filterByYear.bind(this, year))
+
+    // sort
+      switch(sorting.active) {
+        case 'name':
+        case 'seasons':
+        case 'network':
+          filteredShows.sort(sortByName);
+          break;
+        case 'premiereDate':
+          filteredShows.sort();
+          break;
+      }
+      return filteredShows
   }
 );
 
+export const getShowsLength = createSelector(
+  getShows, (shows) => shows.length
+);
+
+export const getCurrentPage = createSelector(
+  getShowsState,
+  (state) => state.currentPage
+);
+
+export const getItemsPerPage = createSelector(
+  getShowsState,
+  (state) => state.itemsPerPage
+)
+
+
+export const getCurrentPageShows= createSelector(
+  getShows,
+  getCurrentPage,
+  getItemsPerPage,
+  (shows, currentPage, itemsPerPage) => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = currentPage * itemsPerPage;
+    return shows.slice(startIndex, endIndex)
+  }
+)
 
 

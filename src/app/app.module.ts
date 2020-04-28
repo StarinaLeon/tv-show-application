@@ -14,7 +14,7 @@ import {DataTableComponent } from './pages/shows/data-table/data-table.component
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSortModule} from '@angular/material/sort';
 import {FormsModule} from '@angular/forms';
-import { PageNumberComponent } from './pages/shows/page-number/page-number.component';
+import { PaginatorComponent } from './pages/shows/paginator/paginator.component';
 import { PaginationPipe } from './shared/pipes/pagination.pipe';
 import { FilterComponent } from './pages/shows/filter/filter.component';
 import {StoreModule} from '@ngrx/store';
@@ -27,6 +27,8 @@ import {reducers} from './store/root.reducers';
 import {AppContainer} from './app.container';
 import {FilterContainer} from './pages/shows/filter/filter.container';
 import {DataTableContainer} from './pages/shows/data-table/data-table.container';
+import {PaginatorContainer} from './pages/shows/paginator/paginator.container';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import {DataTableContainer} from './pages/shows/data-table/data-table.container'
     AppContainer,
     DataTableComponent,
     DataTableContainer,
-    PageNumberComponent,
+    PaginatorComponent,
+    PaginatorContainer,
     PaginationPipe,
     FilterComponent,
     FilterContainer

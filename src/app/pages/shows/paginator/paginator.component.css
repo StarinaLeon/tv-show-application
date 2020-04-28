@@ -38,7 +38,7 @@
   line-height: 30px;
   color: white;
   text-align: center;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 .flex-change-number:hover {
@@ -63,7 +63,11 @@
 .inactive {
   background-color: white;
   color: black;
-
 }
+
+.disabled-page-counter {
+    pointer-events: none;
+}
+
 
 

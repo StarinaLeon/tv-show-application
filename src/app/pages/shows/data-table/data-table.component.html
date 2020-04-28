@@ -1,6 +1,6 @@
+<app-filter-container></app-filter-container>
 <div class="data-table">
-  <app-filter-container></app-filter-container>
-  <mat-table [dataSource]="dataSource" matSort>
+  <mat-table [dataSource]="dataSource" matSort (matSortChange)="onSortChange($event)">
 
     <ng-container matColumnDef="name" >
       <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
@@ -10,6 +10,7 @@
           <mat-chip
             *ngFor="let genre of show.genres"
             (click)="changeSelectedGenre(genre)"
+            [style.background]="GENRE_COLORS[genre]"
           >{{genre}}</mat-chip>
         </mat-chip-list>
       </mat-cell>
@@ -36,14 +37,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  <mat-paginator [pageSize]="5" [pageSizeOptions]="PAGE_OPTIONS"
-                 (page)="getPageNumber()"></mat-paginator>
-
-  <app-page-number [pages]="pages"
-                   [currentPage]="currentPage"
-                   [pageSizeOptions]="pageSizeOptions"
-                   (toNextPage)="nextPage()"
-                   (toPreviousPage)="previousPage()"
-                   (onChangePageSize)="changePageSize()"
-  ></app-page-number>
+  <app-paginator-container></app-paginator-container>
 </div>

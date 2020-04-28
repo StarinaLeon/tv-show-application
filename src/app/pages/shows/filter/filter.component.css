@@ -1,4 +1,6 @@
 .flexcontainer {
+  width: 60%;
+  margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,4 +15,10 @@
   position: absolute;
   right: 50%;
   transform: translateX(50%);
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #F7C12C;
+  color: white;
+  margin-top: 10px;
 }

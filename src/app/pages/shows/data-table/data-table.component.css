@@ -3,7 +3,7 @@
   margin: auto;
 }
 
-.mat-column-name {
+.mat-column-name.mat-cell{
   flex-direction: column;
   align-items: flex-start;
 }
@@ -11,3 +11,19 @@
 .mat-standard-chip {
   min-height: 20px;
 }
+
+.mat-header-cell {
+  background-color: #953ea2;
+  color: white;
+  font-size: .9rem;
+  font-weight: lighter;
+}
+
+::ng-deep.mat-sort-header-arrow {
+  color: white;
+}
+
+.mat-chip.mat-standard-chip {
+
+}
+
