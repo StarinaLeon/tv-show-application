@@ -43,6 +43,21 @@ export function sortByName(a: ShowInterface, b:ShowInterface ) {
   return 0;
 }
 
-export function sortByDate(a: ShowInterface, b:ShowInterface) {
+function convertDate(show: ShowInterface) {
+  const date = show.premiereDate;
+  const year = date.slice(-4);
+  const month = date.slice(3, 5);
+  const day = date.substr(0, 2);
+  const convertedDate = [year, month, day].join('');
+  return convertedDate;
+}
 
+export function sortByDate(a: ShowInterface, b: ShowInterface) {
+  if (convertDate(a) > convertDate(b)) {
+    return 1;
+  }
+  if (convertDate(a) < convertDate(b)) {
+    return -1;
+  }
+  return 0;
 }

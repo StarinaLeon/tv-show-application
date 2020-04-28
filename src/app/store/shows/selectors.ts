@@ -1,7 +1,7 @@
 import {AppState} from '../root.reducers';
 import {createSelector} from '@ngrx/store';
 import {ShowsState} from './reducer';
-import {filterByGenre, filterBySearch, filterByYear, sortByName} from '../../pages/shows/data-table/data-table.helper';
+import {filterByGenre, filterBySearch, filterByYear, sortByDate, sortByName} from '../../pages/shows/data-table/data-table.helper';
 
 export const getShowsState = (state: AppState) => state.shows;
 
@@ -56,7 +56,7 @@ export const getShows = createSelector(
           filteredShows.sort(sortByName);
           break;
         case 'premiereDate':
-          filteredShows.sort();
+          filteredShows.sort(sortByDate);
           break;
       }
       return filteredShows
