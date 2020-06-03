@@ -1,5 +1,7 @@
 .flexcontainer {
   width: 60%;
+  min-width: 50rem;
+  height: var(--filter-height);
   margin: auto;
   display: flex;
   flex-direction: row;

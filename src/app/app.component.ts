@@ -4,7 +4,6 @@ import {HttpService} from './shared/services/http.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
   providers: [HttpService]
 })
 

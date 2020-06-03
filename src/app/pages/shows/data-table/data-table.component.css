@@ -1,6 +1,19 @@
 .data-table {
   width: 60%;
+  min-width: 50rem;
   margin: auto;
+  height: calc(100% - var(--filter-height));
+}
+
+.mat-table {
+  max-height: calc(100% - var(--paginator-height));
+  overflow: auto;
+}
+
+.mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .mat-column-name.mat-cell{
@@ -21,9 +34,5 @@
 
 ::ng-deep.mat-sort-header-arrow {
   color: white;
-}
-
-.mat-chip.mat-standard-chip {
-
 }
 

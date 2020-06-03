@@ -9,28 +9,28 @@
     },
     {
       "name": "Game of Thrones",
-      "seasons": 7,
+      "seasons": 1,
       "network": "HBO",
       "genres": ["horror"],
-      "premiereDate": "19.11.2020"
+      "premiereDate": "19.11.2015"
     },
     {
       "name": "The Super terror",
-      "seasons": 8,
+      "seasons": 7,
       "network": "Netflix",
       "genres": ["comedy"],
-      "premiereDate": "15.10.2019"
+      "premiereDate": "15.10.2018"
     },
     {
       "name": "The  Mega puper Terror",
-      "seasons": 15,
+      "seasons": 5,
       "network": "Another company",
       "genres": ["dark comedy"],
-      "premiereDate": "20.07.2017"
+      "premiereDate": "20.07.2018"
     },
     {
       "name": "Terror between terrors",
-      "seasons": 20,
+      "seasons": 1,
       "network": "Super Netflix",
       "genres": ["tragedy"],
       "premiereDate": "9.07.2011"
@@ -50,10 +50,10 @@
     },
     {
       "name": "Game of Thrones",
-      "seasons": 7,
+      "seasons": 2,
       "network": "HBO",
       "genres": ["horror"],
-      "premiereDate": "19.11.2020"
+      "premiereDate": "19.11.2016"
     },
     {
       "name": "The Super terror",
@@ -64,14 +64,14 @@
     },
     {
       "name": "The  Mega puper Terror",
-      "seasons": 15,
+      "seasons": 1,
       "network": "Another company",
       "genres": ["dark comedy"],
       "premiereDate": "20.07.2017"
     },
     {
       "name": "Terror between terrors",
-      "seasons": 20,
+      "seasons": 2,
       "network": "Super Netflix",
       "genres": ["tragedy"],
       "premiereDate": "9.07.2011"
@@ -91,31 +91,31 @@
     },
     {
       "name": "Game of Thrones",
-      "seasons": 7,
+      "seasons": 3,
       "network": "HBO",
       "genres": ["horror"],
-      "premiereDate": "19.11.2020"
+      "premiereDate": "19.11.2017"
     },
     {
       "name": "The Super terror",
-      "seasons": 8,
+      "seasons": 6,
       "network": "Netflix",
       "genres": ["comedy"],
-      "premiereDate": "15.10.2019"
+      "premiereDate": "15.05.2017"
     },
     {
       "name": "The  Mega puper Terror",
-      "seasons": 15,
+      "seasons": 2,
       "network": "Another company",
       "genres": ["dark comedy"],
-      "premiereDate": "20.07.2017"
+      "premiereDate": "20.07.2018"
     },
     {
       "name": "Terror between terrors",
-      "seasons": 20,
+      "seasons": 3,
       "network": "Super Netflix",
       "genres": ["tragedy"],
-      "premiereDate": "9.07.2011"
+      "premiereDate": "9.07.2012"
     },
     {
       "name": "The Terror seriously I am done",
@@ -126,10 +126,10 @@
     },
     {
       "name": "Terror between terrors",
-      "seasons": 20,
+      "seasons": 4,
       "network": "Super Netflix",
       "genres": ["tragedy"],
-      "premiereDate": "9.07.2011"
+      "premiereDate": "9.07.2013"
     },
     {
       "name": "The Terror seriously I am done",
@@ -146,24 +146,24 @@
     },
     {
       "name": "One Tree Hill",
-      "seasons": 7,
+      "seasons": 6,
       "network": "SW",
       "genres": ["drama"],
-      "premiereDate": "9.07.2011"
+      "premiereDate": "9.08.2010"
     },
     {
       "name": "The Super terror",
-      "seasons": 8,
+      "seasons": 4,
       "network": "Netflix",
       "genres": ["comedy"],
-      "premiereDate": "15.10.2019"
+      "premiereDate": "10.10.2015"
     },
     {
       "name": "The  Mega puper Terror",
-      "seasons": 15,
+      "seasons": 3,
       "network": "Another company",
       "genres": ["dark comedy"],
-      "premiereDate": "20.07.2017"
+      "premiereDate": "20.07.2019"
     },
     {
       "name": "One Tree Hill",

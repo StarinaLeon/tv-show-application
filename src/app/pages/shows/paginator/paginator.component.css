@@ -9,6 +9,8 @@
 .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: var(--paginator-height);
 }
 
 .flex-page-number {
